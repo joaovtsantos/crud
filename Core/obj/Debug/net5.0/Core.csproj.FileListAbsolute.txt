@@ -1,0 +1,15 @@
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\DataAcess.dll
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.csprojAssemblyReference.cache
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\Core.deps.json
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\Core.dll
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\ref\Core.dll
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\Core.pdb
+C:\Users\João Santos\source\repos\CRUDLogin\Core\bin\Debug\net5.0\DataAcess.pdb
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.csproj.CopyComplete
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.dll
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\ref\Core.dll
+C:\Users\João Santos\source\repos\CRUDLogin\Core\obj\Debug\net5.0\Core.pdb
