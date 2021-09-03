@@ -19,7 +19,7 @@ namespace Core.User
 
         public async Task<Model.User> Execute(string email)
         {
-            var result = await _userRepository.GetUserByEmail(email);
+            var result = await _userRepository.GetUserByEmailAsync(email);
 
             return result;
         }

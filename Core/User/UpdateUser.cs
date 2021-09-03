@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Core.User
 {
-    public class UpdateUser : IUpdateUser
+    public class UpdateUser : PasswordEncryptionToDecrypt, IUpdateUser
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailValidate _validateEmail;

@@ -19,7 +19,7 @@ namespace Core.User
 
         public async Task<List<Model.User>> Execute(string name)
         {
-            var result = await _userRepository.GetUserByName(name);
+            var result = await _userRepository.GetUserByNameAsync(name);
 
             List<Model.User> output = new List<Model.User>();
 

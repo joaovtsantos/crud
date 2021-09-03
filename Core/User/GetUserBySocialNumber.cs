@@ -19,7 +19,7 @@ namespace Core.User
 
         public async Task<Model.User> Execute(string socialNumber)
         {
-            var result = await _userRepository.GetUserBySocialNumber(socialNumber);
+            var result = await _userRepository.GetUserBySocialNumberAsync(socialNumber);
 
             return result;
         }

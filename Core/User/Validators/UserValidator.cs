@@ -43,11 +43,11 @@ namespace Core.User.Validators
                 .WithMessage("O CPF informado não está correspondente ao formato de um CPF");
 
             RuleFor(model => model)
-               .Must(model => !userRepository.RegisteredEmail(model.Email).Result)
+               .Must(model => !userRepository.RegisteredEmailAsync(model.Email).Result)
                .WithMessage("E-mail já cadastrado");
 
             RuleFor(model => model)
-               .Must(model => !userRepository.RegisteredSocialNumber(model.SocialNumber).Result)
+               .Must(model => !userRepository.RegisteredSocialNumberAsync(model.SocialNumber).Result)
                .WithMessage("CPF já cadastrado");
 
             return this;
@@ -83,6 +83,22 @@ namespace Core.User.Validators
                 .Must(model => validateSocialNumber.IsSocialNumber(model.SocialNumber))
                 .WithMessage("O CPF informado não está correspondente ao formato de um CPF");
 
+            return this;
+        }
+
+        public UserValidator LoginValidator(IEmailValidate emailValidate)
+        {
+            RuleFor(model => model.Email)
+            .NotEmpty()
+            .WithMessage("O e-mail é obrigatório");
+
+            RuleFor(model => model.Password)
+            .NotEmpty()
+            .WithMessage("A senha é obrigatória");
+
+            RuleFor(model => model)
+            .Must(model => emailValidate.IsValidEmail(model.Email))
+            .WithMessage("O e-mail cadastrado não esta corespondente ao formato de um e-mail");
             return this;
         }
     }

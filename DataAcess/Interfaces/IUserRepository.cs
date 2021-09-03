@@ -9,11 +9,13 @@ namespace DataAcess.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task<bool> RegisteredEmail(string email);
-        Task<bool> RegisteredSocialNumber(string socialNumber);
-        Task<User> GetUserByEmail(string email);
-        Task<List<User>> GetUserByName(string name);
-        Task<User> GetUserBySocialNumber(string socialNumber);
+        Task<bool> RegisteredEmailAsync(string email);
+        Task<bool> RegisteredSocialNumberAsync(string socialNumber);
+        Task<User> GetUserByEmailAsync(string email);
+        Task<List<User>> GetUserByNameAsync(string name);
+        Task<User> GetUserBySocialNumberAsync(string socialNumber);
+        Task<User> GetByEmailPasswordAsync(string email, string password);
+        Task<bool> UpdateAsyncPassword(User user);
 
     }
 }

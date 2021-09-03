@@ -1,6 +1,9 @@
 ﻿using ApiRest.Model;
+using Core.Infrastructure.Token;
 using Core.User;
 using Core.User.Interfaces;
+using Core.User.UserRecovey;
+using Core.User.UserRecovey.Interfaces;
 using Core.User.Validators;
 using DataAcess.Context;
 using DataAcess.Interfaces;
@@ -42,6 +45,11 @@ namespace ApiRest.Config
             services.AddScoped<IUpdateUser, UpdateUser>();
             services.AddScoped<IEmailValidate, EmailValidate>();
             services.AddScoped<IValidateSocialNumber, ValidateSocialNumber>();
+            services.AddScoped<IGetUserByLogin, GetUserByLogin>();
+            services.AddScoped<IUpdatePassword, UpdatePassword>();
+            services.AddScoped<INewPassowordUserRecovery, NewPassowordUserRecovery>();
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<IPasswordValidator, PasswordValidator>();
 
             #endregion
         }

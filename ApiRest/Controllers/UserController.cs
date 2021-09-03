@@ -14,6 +14,7 @@ namespace ApiRest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class UserController : ControllerBase
     {
         private readonly ICreateUser _createUser;
@@ -24,6 +25,7 @@ namespace ApiRest.Controllers
         private readonly IGetUserByName _getUserByName;
         private readonly IGetUserBySocialNumber _getUserBySocialNumber;
         private readonly IUpdateUser _updateUser;
+        private readonly IUpdatePassword _updatePassword;
 
         public UserController(ICreateUser createUser,
                               IDeleteUser deleteUser, 
@@ -32,7 +34,8 @@ namespace ApiRest.Controllers
                               IGetUserById getUserById, 
                               IGetUserByName getUserByName, 
                               IGetUserBySocialNumber getUserBySocialNumber, 
-                              IUpdateUser updateUser)
+                              IUpdateUser updateUser,
+                              IUpdatePassword updatePassword)
         {
             _createUser = createUser;
             _deleteUser = deleteUser;
@@ -42,6 +45,7 @@ namespace ApiRest.Controllers
             _getUserByName = getUserByName;
             _getUserBySocialNumber = getUserBySocialNumber;
             _updateUser = updateUser;
+            _updatePassword = updatePassword;
         }
 
         [HttpPost]
@@ -197,6 +201,29 @@ namespace ApiRest.Controllers
                 var result = await _getUserByEmail.Execute(userByEmail);
 
                 return Ok(Result.Create(result, HttpStatusCode.OK, "Operação executada com sucesso!"));
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, e.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("ChangePassword")]
+        public async Task<IActionResult> PutPassword([FromBody] UserModificPasswordRequest updateUserRequest)
+        {
+            try
+            {
+                var result = await _updatePassword.Execute(updateUserRequest);
+                return Ok(Result.Create(result, System.Net.HttpStatusCode.OK, "Operação executada com sucesso!"));
+            }
+            catch (ApiDomainException domainException)
+            {
+                return UnprocessableEntity(Result.Create(domainException.Errors, HttpStatusCode.UnprocessableEntity, "Erro ao executar a operação"));
             }
             catch (ArgumentException e)
             {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Utils
 {
-    public static class PasswordEncryptionToDecrypt
+    public abstract class PasswordEncryptionToDecrypt
     {
         // para Ciptografia de Senha
         private static readonly string _key = "3423423K4H23I4U2I3UY423";
@@ -49,7 +49,7 @@ namespace Core.Infrastructure.Utils
             return Convert.ToBase64String(resultArray, 0, resultArray.Length);
         }
 
-        public static string DecryptPassowrd(string cipherString)
+        public static string DecryptPassword(string cipherString)
         {
             byte[] keyArray;
             //get the byte code of the string

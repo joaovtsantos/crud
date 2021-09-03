@@ -15,9 +15,10 @@ namespace Core.User.Model
         public string SocialNumber { get; set; }
         public string AuthenticationToken { get; set; }
         public bool Status { get; set; }
+        public string Token { get; set; }
 
 
-        public static implicit operator User (DataAcess.Entities.User user)
+        public static implicit operator User(DataAcess.Entities.User user)
         {
             if (user == null)
                 return null;
@@ -30,10 +31,11 @@ namespace Core.User.Model
                 Password = user.Password,
                 SocialNumber = user.SocialNumber,
                 Status = user.Status,
+                Token = user.Token
             };
         }
 
-        public static implicit operator DataAcess.Entities.User (User model)
+        public static implicit operator DataAcess.Entities.User(User model)
         {
             if (model == null)
                 return null;
@@ -46,6 +48,7 @@ namespace Core.User.Model
                 Password = model.Password,
                 SocialNumber = model.SocialNumber,
                 Status = model.Status,
+                Token = model.Token
             };
         }
     }
