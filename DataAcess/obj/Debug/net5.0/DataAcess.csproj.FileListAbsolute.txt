@@ -1,0 +1,12 @@
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.AssemblyInfoInputs.cache
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.AssemblyInfo.cs
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.csproj.CoreCompileInputs.cache
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\bin\Debug\net5.0\DataAcess.deps.json
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\bin\Debug\net5.0\DataAcess.dll
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\bin\Debug\net5.0\ref\DataAcess.dll
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\bin\Debug\net5.0\DataAcess.pdb
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.csprojAssemblyReference.cache
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.dll
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\ref\DataAcess.dll
+C:\Users\João Santos\source\repos\CRUDLogin\DataAcess\obj\Debug\net5.0\DataAcess.pdb
