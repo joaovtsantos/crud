@@ -57,11 +57,11 @@ namespace Core.User
                 throw new ApiDomainException(validationList);
             }
 
-            userDb.Token = _jwtGenerator.CreateUserAuthToken(user.UserId);
+            Model.User userToken = userDb;
 
-            await _userRepository.UpdateAsync(userDb);
+            userToken.Token = _jwtGenerator.CreateUserAuthToken(user.UserId);
 
-            return userDb;
+            return userToken;
         }
     }
 }

@@ -30,8 +30,7 @@ namespace Core.User.Model
                 Email = user.Email,
                 Password = user.Password,
                 SocialNumber = user.SocialNumber,
-                Status = user.Status,
-                Token = user.Token
+                Status = user.Status
             };
         }
 
@@ -48,7 +47,6 @@ namespace Core.User.Model
                 Password = model.Password,
                 SocialNumber = model.SocialNumber,
                 Status = model.Status,
-                Token = model.Token
             };
         }
     }

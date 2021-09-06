@@ -14,6 +14,5 @@ namespace DataAcess.Entities
         public string Password { get; set; }
         public string SocialNumber { get; set; }
         public bool Status { get; set; }
-        public string Token { get; set; }
     }
 }
