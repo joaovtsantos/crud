@@ -1,6 +1,5 @@
 ﻿using ApiRest.Model;
 using ApiRest.Model.User;
-using AutoMapper.Configuration;
 using Core.Infrastructure.Exceptions;
 using Core.Infrastructure.Token;
 using Core.User.Interfaces;
@@ -20,17 +19,14 @@ namespace ApiRest.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        IConfiguration _configuration;
         IOptions<AuthSettings> _authSettings;
         private readonly IJwtGenerator _jwtGenerator;
         private readonly IGetUserByLogin _getUserByLogin;
 
-        public AuthController(IConfiguration configuration,
-                              IOptions<AuthSettings> authSettings,
+        public AuthController(IOptions<AuthSettings> authSettings,
                               IJwtGenerator jwtGenerator,
                               IGetUserByLogin getUserByLogin)
         {
-            _configuration = configuration;
             _authSettings = authSettings;
             _jwtGenerator = jwtGenerator;
             _getUserByLogin = getUserByLogin;

@@ -23,7 +23,7 @@ namespace Core.User
             _userRepository = userRepository;
             _validateEmail = validateEmail;
             _validateSocialNumber = validateSocialNumber;
-            _userValidator = UserValidator.Validate().CreateUserValidator(validateEmail, validateSocialNumber, userRepository);
+            _userValidator = UserValidator.Validate().UpdateUserValidator(validateEmail, validateSocialNumber);
         }
 
         public async Task<Model.User> Execute(Model.User user)
@@ -38,7 +38,7 @@ namespace Core.User
 
             user.Status = true;
 
-            user.UserId = await _userRepository.InsertAsync(user);
+            await _userRepository.UpdateAsync(user);
 
             return user;
         }

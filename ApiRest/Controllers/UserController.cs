@@ -2,6 +2,7 @@
 using ApiRest.Model.User;
 using Core.Infrastructure.Exceptions;
 using Core.User.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -49,6 +50,7 @@ namespace ApiRest.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] CreateUserRequest createUserRequest)
         {
             try
@@ -154,6 +156,7 @@ namespace ApiRest.Controllers
 
         [HttpGet]
         [Route("filterByName/{userByName}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetName(string userByName)
         {
             try
@@ -174,6 +177,7 @@ namespace ApiRest.Controllers
 
         [HttpGet]
         [Route("filterBySocialNumber/{userBySocialNumber}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetSocialNumber(string userBySocialNumber)
         {
             try
@@ -194,6 +198,7 @@ namespace ApiRest.Controllers
 
         [HttpGet]
         [Route("filterByEmail/{userByEmail}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetEmail(string userByEmail)
         {
             try

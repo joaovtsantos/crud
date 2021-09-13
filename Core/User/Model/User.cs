@@ -13,7 +13,6 @@ namespace Core.User.Model
         public string Email { get; set; }
         public string Password { get; set; }
         public string SocialNumber { get; set; }
-        public string AuthenticationToken { get; set; }
         public bool Status { get; set; }
         public string Token { get; set; }
 
@@ -39,7 +38,7 @@ namespace Core.User.Model
             if (model == null)
                 return null;
 
-            return new User
+            return new DataAcess.Entities.User
             {
                 UserId = model.UserId,
                 Name = model.Name,

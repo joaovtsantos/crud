@@ -8,7 +8,6 @@ namespace ApiRest.Model.User
     public class LoginResult
     {
         public Guid UserId { get; set; }
-        public int CandidateId { get; set; }
         public string Name { get; set; }
         public string Token { get; set; }
         public string Email { get; set; }

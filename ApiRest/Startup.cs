@@ -38,7 +38,7 @@ namespace ApiRest
 
                 apiVersionInfoDescription.AppendLine("<b>NOTES</b>");
                 apiVersionInfoDescription.AppendLine("<p>");
-                apiVersionInfoDescription.AppendLine("Randstad API Integration");
+                apiVersionInfoDescription.AppendLine("CRUDLogin Joao");
                 apiVersionInfoDescription.AppendLine("</p>");
 
                 c.SwaggerDoc("v1", new OpenApiInfo

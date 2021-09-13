@@ -2,6 +2,7 @@
 using ApiRest.Model.UserRecovery;
 using Core.Infrastructure.Exceptions;
 using Core.User.UserRecovey.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +14,6 @@ using System.Threading.Tasks;
 namespace ApiRest.Controllers
 {
     [Route("api/[controller]")]
-    //[Authorize]
     [ApiController]
     public class UserRecoveryController : ControllerBase
     {

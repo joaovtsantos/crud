@@ -1,5 +1,6 @@
 ﻿using ApiRest.Model;
 using Core.Infrastructure.Token;
+using Core.Infrastructure.Token.Model;
 using Core.User;
 using Core.User.Interfaces;
 using Core.User.UserRecovey;
@@ -8,8 +9,10 @@ using Core.User.Validators;
 using DataAcess.Context;
 using DataAcess.Interfaces;
 using DataAcess.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +28,7 @@ namespace ApiRest.Config
 
             services.AddSingleton<IConfiguration>(configuration);
             services.Configure<AuthSettings>(configuration.GetSection("AuthSettings"));
+            services.Configure<AuthKey>(configuration.GetSection("AuthSettings"));
 
             #region DataAccess
 
