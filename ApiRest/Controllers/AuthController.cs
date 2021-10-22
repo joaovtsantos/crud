@@ -1,7 +1,7 @@
-﻿using ApiRest.Model;
+﻿using ApiRest.Auth.Interfaces;
+using ApiRest.Model;
 using ApiRest.Model.User;
 using Core.Infrastructure.Exceptions;
-using Core.Infrastructure.Token;
 using Core.User.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -48,6 +48,7 @@ namespace ApiRest.Controllers
                 }
 
                 LoginResult userLogin = await _getUserByLogin.Execute(data);
+                userLogin.Token = _jwtGenerator.CreateUserAuthToken(userLogin.UserId);
 
                 return Ok(Result.Create(userLogin, HttpStatusCode.OK, "Operação executada com sucesso!"));
 

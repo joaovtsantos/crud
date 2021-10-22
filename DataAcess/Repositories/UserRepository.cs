@@ -93,5 +93,19 @@ namespace DataAcess.Repositories
                 return res;
             }
         }
+
+        public async Task<bool> UpdateAsyncUser(User user)
+        {
+            using (IDbConnection conn = await _dataContext.CreateConnectionAsync())
+            {
+                string updateQuery = @"UPDATE [dbo].[User]
+                    set Name = @Name, Email = @Email, SocialNumber = @SocialNumber, Status = @Status where UserId = @UserId";
+
+                var exe = conn.Execute(updateQuery, user);
+
+                var res = exe > 0 ? true : false;
+                return res;
+            }
+        }
     }
 }

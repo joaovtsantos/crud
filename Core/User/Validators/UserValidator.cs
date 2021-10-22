@@ -67,10 +67,6 @@ namespace Core.User.Validators
                 .NotEmpty()
                 .WithMessage("O e-mail é obrigatório");
 
-            RuleFor(Model => Model.Password)
-                .NotEmpty()
-                .WithMessage("A senha é obrigatória");
-
             RuleFor(Model => Model.SocialNumber)
                 .NotEmpty()
                 .WithMessage("O CPF é obrigatório");

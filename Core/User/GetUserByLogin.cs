@@ -1,5 +1,4 @@
 ﻿using Core.Infrastructure.Exceptions;
-using Core.Infrastructure.Token;
 using Core.Infrastructure.Utils;
 using Core.User.Interfaces;
 using Core.User.Validators;
@@ -7,6 +6,8 @@ using DataAcess.Interfaces;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.User
@@ -15,15 +16,13 @@ namespace Core.User
     {
         IUserRepository _userRepository;
         readonly IEmailValidate _emailValidad;
-        readonly IJwtGenerator _jwtGenerator;
         private readonly UserValidator _UserValidator;
 
-        public GetUserByLogin(IUserRepository userRepository, IEmailValidate emailValidate, IJwtGenerator jwtGenerator)
+        public GetUserByLogin(IUserRepository userRepository, IEmailValidate emailValidate)
         {
             _userRepository = userRepository;
             _emailValidad = emailValidate;
             _UserValidator = UserValidator.Validate().LoginValidator(_emailValidad);
-            _jwtGenerator = jwtGenerator;
         }
 
         public async Task<Model.User> Execute(Model.User user)
@@ -57,11 +56,7 @@ namespace Core.User
                 throw new ApiDomainException(validationList);
             }
 
-            Model.User userToken = userDb;
-
-            userToken.Token = _jwtGenerator.CreateUserAuthToken(user.UserId);
-
-            return userToken;
+            return userDb;
         }
     }
 }

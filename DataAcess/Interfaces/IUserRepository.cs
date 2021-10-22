@@ -16,6 +16,7 @@ namespace DataAcess.Interfaces
         Task<User> GetUserBySocialNumberAsync(string socialNumber);
         Task<User> GetByEmailPasswordAsync(string email, string password);
         Task<bool> UpdateAsyncPassword(User user);
+        Task<bool> UpdateAsyncUser(User user);
 
     }
 }

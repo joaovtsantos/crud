@@ -77,6 +77,8 @@ namespace ApiRest
                          new string[] {}
                     }
                 });
+
+                c.OperationFilter<SwaggerFileOperationFilter>();
             });
 
             services.AddCors(options =>
@@ -122,7 +124,7 @@ namespace ApiRest
             // {
             app.UseDeveloperExceptionPage();
             app.UseSwagger(c => {/*c.SerializeAsV2 = true;*/});
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("../swagger/v1/swagger.json", "Randstad API"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("../swagger/v1/swagger.json", "CRUD Login"); });
             var option = new RewriteOptions();
             option.AddRedirect("^$", "swagger");
             app.UseRewriter(option);

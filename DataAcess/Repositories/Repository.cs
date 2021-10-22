@@ -115,6 +115,7 @@
         public async Task<PaginationResponse<T>> GetAllAsyncPagination(int pageSize, int pageIndex, string sort, string direction, string tableName = "")
         {
             string table = typeof(T).Name;
+            string tabledb = $"[{table}]";
 
             if (!string.IsNullOrEmpty(tableName))
                 table = tableName;
@@ -129,8 +130,8 @@
                 defaultDirection = direction;
 
             string query = $@"SELECT *, COUNT({table}Id) OVER() Id
-                            FROM {table} 
-                            ORDER BY {defaultSort} {defaultDirection}
+                            FROM {tabledb} x
+                            ORDER BY x.{defaultSort} {defaultDirection}
                             OFFSET(@PageIndex - 1) * @PageSize ROWS
                             FETCH NEXT @PageSize ROWS ONLY";
 

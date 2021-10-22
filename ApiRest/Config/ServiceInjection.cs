@@ -1,6 +1,8 @@
-﻿using ApiRest.Model;
-using Core.Infrastructure.Token;
-using Core.Infrastructure.Token.Model;
+﻿using ApiRest.Auth.Core;
+using ApiRest.Auth.Interfaces;
+using ApiRest.Model;
+using Core.Files;
+using Core.Files.Interfaces;
 using Core.User;
 using Core.User.Interfaces;
 using Core.User.UserRecovey;
@@ -28,12 +30,13 @@ namespace ApiRest.Config
 
             services.AddSingleton<IConfiguration>(configuration);
             services.Configure<AuthSettings>(configuration.GetSection("AuthSettings"));
-            services.Configure<AuthKey>(configuration.GetSection("AuthSettings"));
+            services.AddTransient<IConfigureOptions<JwtBearerOptions>, ConfigureJwtBearerOptions>();
 
             #region DataAccess
 
             services.AddSingleton<IDataContext>(serviceProvider => new DataContext(databaseSettings["BancoCRUDSqlConnection"]));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IFileUploadRepository, FileUploadRepository>();
 
             #endregion
 
@@ -54,6 +57,8 @@ namespace ApiRest.Config
             services.AddScoped<INewPassowordUserRecovery, NewPassowordUserRecovery>();
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IPasswordValidator, PasswordValidator>();
+            services.AddScoped<IFileUpload, FileUpload>();
+            services.AddScoped<IGetFileByName, GetFileByName>();
 
             #endregion
         }

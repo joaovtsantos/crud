@@ -16,7 +16,6 @@ namespace Core.User.Model
         public bool Status { get; set; }
         public string Token { get; set; }
 
-
         public static implicit operator User(DataAcess.Entities.User user)
         {
             if (user == null)
@@ -29,7 +28,7 @@ namespace Core.User.Model
                 Email = user.Email,
                 Password = user.Password,
                 SocialNumber = user.SocialNumber,
-                Status = user.Status
+                Status = user.Status,
             };
         }
 

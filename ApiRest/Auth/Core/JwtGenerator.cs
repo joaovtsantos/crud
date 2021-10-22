@@ -1,4 +1,5 @@
-﻿using Core.Infrastructure.Token.Model;
+﻿using ApiRest.Auth.Interfaces;
+using ApiRest.Model;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -7,15 +8,14 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Infrastructure.Token
+namespace ApiRest.Auth.Core
 {
     public class JwtGenerator : IJwtGenerator
     {
         readonly RsaSecurityKey _key;
-        public JwtGenerator(IOptions<AuthKey> settings)
+        public JwtGenerator(IOptions<AuthSettings> settings)
         {
             RSA privateRSA = RSA.Create();
             privateRSA.ImportRSAPrivateKey(Convert.FromBase64String(settings.Value.PrivateKey), out _);
@@ -33,7 +33,7 @@ namespace Core.Infrastructure.Token
                 {
                     new Claim(ClaimTypes.Sid, userId.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddHours(2),
+                Expires = DateTime.UtcNow.AddMinutes(60),
                 SigningCredentials = new SigningCredentials(_key, SecurityAlgorithms.RsaSha256)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

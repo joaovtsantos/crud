@@ -15,7 +15,7 @@ namespace ApiRest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly ICreateUser _createUser;
@@ -116,6 +116,7 @@ namespace ApiRest.Controllers
         }
 
         [HttpPost("GetAll")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get([FromBody] PaginationRequest paginationRequest)
         {
             try

@@ -33,12 +33,9 @@ namespace Core.User
             if (!UserValidated.IsValid)
                 throw new ApiDomainException(UserValidated.Errors);
 
-            // criptografia de senha
-            user.Password = PasswordEncryptionToDecrypt.EncryptPassword(user.Password);
-
             user.Status = true;
 
-            await _userRepository.UpdateAsync(user);
+            await _userRepository.UpdateAsyncUser(user);
 
             return user;
         }
